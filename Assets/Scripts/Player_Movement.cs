@@ -13,7 +13,7 @@ public class Player_Movement : MonoBehaviour
 
     private bool canDash = true;
     private bool isDashing;
-    private float DashingPower;
+    private float DashingPower = 24f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
 
@@ -40,13 +40,12 @@ public class Player_Movement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, JumpPower);
         }
-        if (Input.GetButtonDown("Dash"))
+        if (Input.GetButtonDown("Dash") && canDash)
         {
-            Dash();
+            StartCoroutine(Dash());
         }
 
         Flip();
-        Debug.Log(KeyCode.LeftShift);
     }
     private void FixedUpdate()
     {
@@ -75,8 +74,10 @@ public class Player_Movement : MonoBehaviour
         canDash = false;
         isDashing = true;
         float ogGravity = rb.gravityScale;
-        rb.gravityScale = 0;
+        rb.gravityScale = 0f;
         rb.velocity = new Vector2(transform.localScale.x * DashingPower, 0f);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
         tr.emitting = false;
         rb.gravityScale = ogGravity;
         isDashing = false;
