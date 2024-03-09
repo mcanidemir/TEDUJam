@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - Bullet
   - OneWayPlatform
+  - "b\u0131c"
   layers:
   - Default
   - TransparentFX

@@ -4,70 +4,43 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [Header("Attack Parameters")]
-    [SerializeField] private float attackCooldown;
-    [SerializeField] private float range;
-    [SerializeField] private int damage;
+   // public GameObject health_bar;
+    public int maxHealth = 100;
+    public float currentHealth;
+    public float regen;
+    public bool dummy = false;
 
-    [Header("Collider Parameters")]
-    [SerializeField] private float colliderDistance;
-    [SerializeField] private BoxCollider2D boxCollider;
-
-    [Header("Player Layer")]
-    [SerializeField] private LayerMask playerLayer;
-    private float cooldownTimer = Mathf.Infinity;
-
-    //References
-    private Animator anim;
-   // private Health playerHealth;
-    //private EnemyPatrol enemyPatrol;
-
-    private void Awake()
+    // Start is called before the first frame update
+    void Start()
     {
-        anim = GetComponent<Animator>();
-       // enemyPatrol = GetComponentInParent<EnemyPatrol>();
+        currentHealth = maxHealth;
+
     }
 
+    // Update is called once per frame
     private void Update()
     {
-        cooldownTimer += Time.deltaTime;
+       // health_bar.transform.localScale = new Vector3(0.35f * currentHealth / 100, 0.03f, 1);
+    }
 
-        //Attack only when player in sight?
-        if (PlayerInSight())
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
         {
-            if (cooldownTimer >= attackCooldown)
+            if (!dummy)
             {
-                cooldownTimer = 0;
-                anim.SetTrigger("meleeAttack");
+                Die();
+            }
+            else
+            {
+                currentHealth = maxHealth;
             }
         }
-
-       // if (enemyPatrol != null)
-         //   enemyPatrol.enabled = !PlayerInSight();
     }
 
-    private bool PlayerInSight()
+    public void Die()
     {
-        RaycastHit2D hit =
-            Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z),
-            0, Vector2.left, 0, playerLayer);
-
-       // if (hit.collider != null)
-           // playerHealth = hit.transform.GetComponent<Health>();
-
-        return hit.collider != null;
-    }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-            new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
-    }
-
-    private void DamagePlayer()
-    {
-       // if (PlayerInSight())
-          //  playerHealth.TakeDamage(damage);
+        Destroy(gameObject);
     }
 }
