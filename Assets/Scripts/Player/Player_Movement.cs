@@ -12,13 +12,14 @@ public class Player_Movement : MonoBehaviour
     private bool DoubleJump;
     private bool isFacingRight;
 
+
     private bool canDash = true;
     private bool isDashing;
     private float DashingPower = 24f;
     private float dashingTime = 0.2f;
     private float dashingCooldown = 1f;
 
-
+    [SerializeField] private GameObject Kunai_spawnpoint;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
     [SerializeField] private GameObject kunai;
@@ -118,12 +119,12 @@ public class Player_Movement : MonoBehaviour
     {
         if (isFacingRight)
         {
-        GameObject tmp = (GameObject)Instantiate(kunai, transform.position, Quaternion.Euler(new Vector3(0,0,-45)));
+        GameObject tmp = (GameObject)Instantiate(kunai, Kunai_spawnpoint.transform.position, Quaternion.Euler(new Vector3(0,0,-45)));
             tmp.GetComponent<kunai>().Initialize(Vector2.right);
         }
         else
         {
-            GameObject tmp = (GameObject)Instantiate(kunai, transform.position, Quaternion.Euler(new Vector3(0, 0, 135)));
+            GameObject tmp = (GameObject)Instantiate(kunai, Kunai_spawnpoint.transform.position, Quaternion.Euler(new Vector3(0, 0, 135)));
             tmp.GetComponent<kunai>().Initialize(Vector2.left);
         }
     }
