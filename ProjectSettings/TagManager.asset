@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - OneWayPlatform
   - "b\u0131c"
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
