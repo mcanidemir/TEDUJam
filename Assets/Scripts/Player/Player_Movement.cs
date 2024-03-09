@@ -5,9 +5,10 @@ using UnityEngine;
 public class Player_Movement : MonoBehaviour
 {
     private float horizontal;
-    public float speed;
-    public float JumpPower;
-    private bool isJumping;
+    private float speed = 5;
+    private float speed_Increase = 0.5f;
+    private float JumpPower = 10;
+    private int JumpCount = 0;
     private bool DoubleJump;
     private bool isFacingRight;
 
@@ -36,9 +37,10 @@ public class Player_Movement : MonoBehaviour
         }
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && JumpCount < 2)
         {
             rb.velocity = new Vector2(rb.velocity.x, JumpPower);
+            JumpCount++;
         }
         if (Input.GetButtonDown("Dash") && canDash)
         {
@@ -86,9 +88,24 @@ public class Player_Movement : MonoBehaviour
 
     }
 
+    private void SpeedIncrease()
+    {
+        speed += speed_Increase;
+    }
+
     private void OnCollisionExit2D(Collision2D other)
     {
-       
+        if (other.gameObject.CompareTag("Floor"))
+        {
+
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Floor"))
+        {
+            JumpCount = 0;
+        }
     }
 
 }
