@@ -21,6 +21,7 @@ public class Player_Movement : MonoBehaviour
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
+    [SerializeField] private GameObject kunai;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,11 @@ public class Player_Movement : MonoBehaviour
         if (Input.GetButtonDown("Dash") && canDash)
         {
             StartCoroutine(Dash());
+        }
+
+        if (Input.GetButtonDown("Projectile"))
+        {
+            ThrowKnife(0);
         }
 
         Flip();
@@ -108,4 +114,18 @@ public class Player_Movement : MonoBehaviour
         }
     }
 
+    public void ThrowKnife(int value)
+    {
+        if (isFacingRight)
+        {
+        GameObject tmp = (GameObject)Instantiate(kunai, transform.position, Quaternion.Euler(new Vector3(0,0,-45)));
+            tmp.GetComponent<kunai>().Initialize(Vector2.right);
+        }
+        else
+        {
+            GameObject tmp = (GameObject)Instantiate(kunai, transform.position, Quaternion.Euler(new Vector3(0, 0, 135)));
+            tmp.GetComponent<kunai>().Initialize(Vector2.left);
+        }
+    }
 }
+ 

@@ -25,9 +25,9 @@ InputManager:
     m_Name: Crouch
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: down
+    negativeButton: s
     positiveButton: 
-    altNegativeButton: s
+    altNegativeButton: joystick button 0
     altPositiveButton: 
     gravity: 3
     dead: 0.001
