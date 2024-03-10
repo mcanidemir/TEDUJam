@@ -21,7 +21,6 @@ public class Spike_Pointy : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.Log("sa");
             Destroy(Player);
 
         }
