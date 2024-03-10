@@ -996,10 +996,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a56a9e6f2e1a94a8da69d83d7a361a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomPrefab: {fileID: 9074858557498458170, guid: b391d8f980c08754ead3c8a9a4b10f4f, type: 3}
-  roomPrefab1: {fileID: 6926256273054983710, guid: eb895f89ed48f9c4994c461d62078e4c, type: 3}
-  roomPrefab2: {fileID: 4504498849127975173, guid: a0cabbb0251334d41a8d28ae79be991e, type: 3}
-  roomPrefab3: {fileID: 1404684657606226043, guid: 4db2633b1d90e8240bc514bfc66857f3, type: 3}
+  roomPrefab: {fileID: 628498097841621054, guid: 5b16f005ca55932408c4884dfff60629, type: 3}
+  roomPrefab1: {fileID: 4371551803995729348, guid: 675759665db61a24b87b2b9a0c5d062a, type: 3}
+  roomPrefab2: {fileID: 2130071862714999128, guid: fa3c27da60a556a44a5fe6a05f3b2056, type: 3}
+  roomPrefab3: {fileID: 564141431592686986, guid: 376e9927fa17c8340976ed1ddec39011, type: 3}
   spawnPoint: {fileID: 378723733}
 --- !u!61 &760497666
 BoxCollider2D:
@@ -1874,9 +1874,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1097122138}
-  health: 100
+  currentHealth: 100
+  startingHealth: 0
   maxHealth: 100
   player: {fileID: 1097122131}
+  components: []
 --- !u!250 &1097122143
 PointEffector2D:
   m_ObjectHideFlags: 0
