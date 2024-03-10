@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 29526722}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2265,8 +2265,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0.10864054, y: -0.062466886}
-  m_Size: {x: 0.4692441, y: 0.99594736}
+  m_Offset: {x: 0.03125312, y: 0.6299501}
+  m_Size: {x: 0.6240206, y: 1.1581208}
   m_Direction: 0
 --- !u!212 &1097122134
 SpriteRenderer:
@@ -2309,7 +2309,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cead9b8dd1abdb6448c764487138af61, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae297123f091bbf4e8f1835eb98fb293, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2355,6 +2355,7 @@ MonoBehaviour:
   rb: {fileID: 1097122132}
   tr: {fileID: 1097122137}
   kunai: {fileID: 7270031529146929042, guid: 1ac6178a026801441bfb8efe06bce385, type: 3}
+  anim: {fileID: 0}
 --- !u!96 &1097122137
 TrailRenderer:
   serializedVersion: 3
@@ -2487,7 +2488,7 @@ Animator:
   m_GameObject: {fileID: 1097122131}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8f7261aceaa22b644beca5f633fc5da4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3c2a5b7097b0fe44394328c0bdb9252e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3512,7 +3513,7 @@ Transform:
   m_GameObject: {fileID: 1698228264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.38, y: 0.12, z: -0}
+  m_LocalPosition: {x: 0.812, y: 0.768, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

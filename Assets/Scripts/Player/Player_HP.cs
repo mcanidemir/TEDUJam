@@ -28,12 +28,7 @@ public class Player_HP : MonoBehaviour
         if (currentHealth <= 0)
         {
                 GameManager.GameOver();
-            timer += Time.deltaTime;
-            if (timer > 1)
-            {
-                Destroy(player);
 
-            }
         }
     }
     public void TakeDamage(float _damage)

@@ -28,16 +28,20 @@ public class Player_Movement : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private TrailRenderer tr;
     [SerializeField] private GameObject kunai;
+    [SerializeField] private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        anim.SetFloat("AirSpeedY", rb.velocity.y);
         if (isDashing)
         {
             return;
@@ -48,6 +52,7 @@ public class Player_Movement : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, JumpPower);
             JumpCount++;
+            anim.SetTrigger("Jump");
         }
         if (Input.GetButtonDown("Dash") && canDash)
         {
@@ -105,14 +110,16 @@ public class Player_Movement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Floor"))
         {
-
+            anim.SetBool("Grounded", false);
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Floor"))
+        if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("OneWayPlatform"))
         {
             JumpCount = 0;
+            anim.SetBool("Grounded", true);
+
         }
     }
 

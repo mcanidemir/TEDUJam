@@ -5,10 +5,12 @@ using UnityEngine;
 public class Spike_Pointy : MonoBehaviour
 {
     public GameObject Player;
+    private GameObject GameManager;
     // Start is called before the first frame update
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        GameManager = GameObject.FindGameObjectWithTag("GameController");
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class Spike_Pointy : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            Destroy(Player);
+            GameManager.GetComponent<GameManager>().GameOver();
 
         }
     }

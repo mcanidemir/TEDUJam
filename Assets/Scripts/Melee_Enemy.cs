@@ -26,6 +26,7 @@ public class Melee_Enemy : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         enemyPatrol = GetComponentInParent<EnemyPatrol>();
+        
     }
 
     private void Update()
