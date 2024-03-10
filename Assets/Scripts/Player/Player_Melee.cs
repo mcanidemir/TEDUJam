@@ -8,7 +8,7 @@ public class Player_Melee : MonoBehaviour
     public LayerMask enemyLayers;
 
     public float attackRange = 0.5f;
-    public int attackDamage = 50;
+    public int attackDamage = 20;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,6 @@ public class Player_Melee : MonoBehaviour
     {
         if (Input.GetButtonDown("Melee"))
         {
-            Debug.Log("girdim abi");
             Attack();
         }
     }
@@ -43,5 +42,9 @@ public class Player_Melee : MonoBehaviour
             return;
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+    public void AttackIncrease()
+    {
+        attackDamage += 2;
     }
 }

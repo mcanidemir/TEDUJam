@@ -36,19 +36,19 @@ public class Player_HP : MonoBehaviour
     }
     public void TakeDamage(float _damage)
     {
-        
-        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+        Debug.Log("b");
+        currentHealth = currentHealth - _damage;
 
         if (currentHealth > 0)
         {
-            anim.SetTrigger("hurt");
+            //anim.SetTrigger("hurt");
             
         }
         else
         {
             if (!dead)
             {
-                anim.SetTrigger("die");
+                //anim.SetTrigger("die");
 
                 //Deactivate all attached component classes
                 foreach (Behaviour component in components)
@@ -57,5 +57,10 @@ public class Player_HP : MonoBehaviour
                 dead = true;
             }
         }
+    }
+    public void HealthIncrease()
+    {
+        currentHealth += 15;
+        maxHealth += 15;
     }
 }

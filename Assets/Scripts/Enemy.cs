@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Debug.Log("Geldim abi");
+        
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
