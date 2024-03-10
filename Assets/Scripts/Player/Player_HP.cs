@@ -14,6 +14,7 @@ public class Player_HP : MonoBehaviour
     private float timer;
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
+    public GameManager GameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class Player_HP : MonoBehaviour
         //healthBar.fillAmount = Mathf.Clamp(health / maxHealth, 0, 1);
         if (currentHealth <= 0)
         {
+                GameManager.GameOver();
             timer += Time.deltaTime;
             if (timer > 1)
             {

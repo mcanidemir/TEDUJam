@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public GameObject GameOverPanel;
+    public bool Dead = false;
     // Start is called before the first frame update
 
     public void GameOver()
     {
-        GA.SetActive(true);
+        GameOverPanel.SetActive(true);
         Time.timeScale = 0;
     }
     public void Restart()
